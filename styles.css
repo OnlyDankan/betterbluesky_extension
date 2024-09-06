@@ -15,42 +15,66 @@
 
 @font-face {
     font-family: TwitterChirp;
+    src: url(https://abs.twimg.com/responsive-web/client-web/Chirp-Medium.f8e2739a.woff2) format('woff2'),
+         url(https://abs.twimg.com/responsive-web/client-web/Chirp-Medium.20fc288a.woff) format('woff');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: TwitterChirp;
     src: url(https://abs.twimg.com/responsive-web/client-web/Chirp-Bold.ebb56aba.woff2) format('woff2'),
          url(https://abs.twimg.com/responsive-web/client-web/Chirp-Bold.a573679a.woff) format('woff');
     font-weight: 700;
 }
 
-/* Estilo Global */
+@font-face {
+    font-family: TwitterChirp;
+    src: url(https://abs.twimg.com/responsive-web/client-web/Chirp-Heavy.f44ae4ea.woff2) format('woff2'),
+         url(https://abs.twimg.com/responsive-web/client-web/Chirp-Heavy.d70ec7ca.woff) format('woff');
+    font-weight: 800;
+}
+
+/* Fonte principal */
+* {
+    font-family: TwitterChirp, -apple-system, 'Segoe UI', sans-serif !important;
+}
+
+/* Ajustes gerais do corpo */
 body {
-    margin: 0;
+    background-color: #15202b; /* Fundo mais escuro como o do Twitter */
     padding: 10px;
-    font-family: TwitterChirp, 'Segoe UI', sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Modo escuro (dark mode) */
-body {
-    background-color: #15202b;
     color: white;
+    font-family: "Segoe UI", sans-serif;
 }
 
-/* Modo claro (white mode) */
-body.light-mode {
-    background-color: #ffffff;
-    color: #000000;
+/* Header da aplicação */
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
 }
 
+.icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+}
+
+.header h1 {
+    margin-left: 10px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Estilização dos links */
 a {
-    color: #1da1f2;
+    color: rgb(29, 155, 240); /* Cor padrão dos links do Twitter */
+    display: inline;
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
-}
-
-a.light-mode {
-    color: #1d9bf0;
 }
 
 /* Seção dos Trending Topics */
@@ -61,13 +85,9 @@ a.light-mode {
     border: 1px solid #38444d;
     border-radius: 10px;
     padding: 15px;
+    box-sizing: border-box;
+    color: white;
     margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.trends.light-mode {
-    background-color: #f5f8fa;
-    border-color: #ccd6dd;
 }
 
 .trends h2 {
@@ -96,11 +116,7 @@ a.light-mode {
 }
 
 .trends li:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.trends li.light-mode:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.1); /* Efeito hover nos itens */
 }
 
 .counter {
@@ -109,42 +125,72 @@ a.light-mode {
     margin-right: 10px;
 }
 
-.counter.light-mode {
-    color: rgba(0, 0, 0, 0.8);
+.content {
+    display: flex;
+    flex-direction: column;
 }
 
 .trend {
     font-size: 1rem;
     font-weight: bold;
     color: white;
-}
-
-.trend.light-mode {
-    color: black;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .trends .content span {
     color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
 }
 
-.trends .content span.light-mode {
-    color: rgba(0, 0, 0, 0.6);
+/* Custom scrollbar */
+.trends ul::-webkit-scrollbar {
+    width: 5px;
 }
 
-/* Botão para alternar os modos */
-#toggle-mode {
-    background-color: #1da1f2;
+.trends ul::-webkit-scrollbar-thumb {
+    background: #38444d;
+    border-radius: 10px;
+}
+
+/* Seção de apoio */
+.trends .apoie {
+    border-top: 1px solid #ffffff1f;
+    margin: 10px 0 0 0;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 0.8rem;
+    color: rgb(255, 255, 255);
+}
+
+.trends .apoie a {
+    color: #FF9325;
+}
+
+.trends .apoie a:hover {
+    text-decoration: underline;
+}
+
+/* Outros estilos */
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 350px;
+}
+
+h1, h2, h3, h4 {
     color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: "Segoe UI", sans-serif;
 }
 
-#toggle-mode.light-mode {
-    background-color: #ffffff;
-    color: #1da1f2;
-    border: 1px solid #1da1f2;
+a {
+    color: rgb(111, 111, 255);
+}
+
+a:hover {
+    text-decoration: underline;
 }
